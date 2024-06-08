@@ -1,0 +1,25 @@
+{
+    "count": 8,
+    "faq": {
+        "question": [
+            "What is the maximum payload capacity of the ABB IRB120 robot?",
+            "What is the repeatability of the ABB IRB120 robot?",
+            "What type of robot is the ABB IRB120?",
+            "What is the reach of the ABB IRB120 robot?",
+            "What is the weight of the ABB IRB120 robot?",
+            "What is the power supply requirement for the ABB IRB120 robot?",
+            "How many axes does the ABB IRB120 robot have?",
+            "What controller is compatible with the ABB IRB120 robot?"
+        ],
+        "answer": [
+            "The maximum payload capacity of the ABB IRB120 robot is 3 kg. This means the robot can handle objects and tools weighing up to 3 kilograms, making it suitable for tasks such as small part assembly, material handling, and machine tending.",
+            "The repeatability of the ABB IRB120 robot is ±0.01 mm. This high level of precision allows the robot to consistently perform tasks with minimal deviation, which is crucial for applications requiring exact movements and positioning, such as electronics assembly and laboratory automation.",
+            "The ABB IRB120 is an articulated robot. This type of robot has multiple rotary joints (six in the case of the IRB120), giving it the flexibility to move in various directions and perform a wide range of tasks. Articulated robots are commonly used in manufacturing and automation for their versatility.",
+            "The reach of the ABB IRB120 robot is 580 mm. This refers to the maximum distance the robot can extend its arm from the base to the end of the wrist. A 580 mm reach makes the IRB120 ideal for operations within confined spaces, where it can efficiently handle tasks without requiring a large footprint.",
+            "The weight of the ABB IRB120 robot is 25 kg. This relatively low weight allows for easy installation and relocation. Despite its lightweight design, the IRB120 maintains a robust build that ensures stability and durability in various industrial environments.",
+            "The power supply requirement for the ABB IRB120 robot is 200-600 V AC. This wide range of voltage compatibility allows the robot to be used in different countries and settings without needing significant electrical modifications, facilitating its deployment in global operations.",
+            "The ABB IRB120 robot has 6 axes. These six axes provide a high degree of freedom, enabling the robot to perform complex and precise movements. This makes the IRB120 suitable for tasks requiring intricate maneuvers, such as welding, painting, and assembly.",
+            "The ABB IRB120 robot is compatible with the IRC5 controller. The IRC5 controller offers advanced motion control, ease of programming, and a user-friendly interface. It supports various programming languages and provides features such as coordinated motion, which enhances the robot's performance in multi-robot systems."
+        ]
+    }
+}

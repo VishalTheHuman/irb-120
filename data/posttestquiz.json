@@ -1,0 +1,115 @@
+{
+    "qna": [
+        {
+            "question": "What is the maximum horizontal reach of the ABB IRB120 robot?",
+            "options": [
+                "580 mm",
+                "700 mm",
+                "900 mm",
+                "1200 mm"
+            ],
+            "correct_answer": "900 mm",
+            "explanation": "The maximum horizontal reach of the ABB IRB120 robot is 900 mm. This reach allows the robot to access a wide working area, making it suitable for applications that require flexibility and range of motion."
+        },
+        {
+            "question": "What is the maximum vertical reach of the ABB IRB120 robot?",
+            "options": [
+                "580 mm",
+                "700 mm",
+                "900 mm",
+                "1200 mm"
+            ],
+            "correct_answer": "1200 mm",
+            "explanation": "The maximum vertical reach of the ABB IRB120 robot is 1200 mm. This vertical reach enables the robot to handle tasks that involve reaching elevated or recessed areas, increasing its versatility in various industrial applications."
+        },
+        {
+            "question": "What is the IP rating of the ABB IRB120 robot?",
+            "options": [
+                "IP54",
+                "IP65",
+                "IP67",
+                "IP69K"
+            ],
+            "correct_answer": "IP67",
+            "explanation": "The ABB IRB120 robot has an IP67 rating, indicating that it is dust tight and can withstand immersion in water up to 1 meter for 30 minutes. This makes it suitable for use in harsh industrial environments where dust and moisture are present."
+        },
+        {
+            "question": "What is the maximum number of user-defined programs that can be stored in the ABB IRB120 robot's memory?",
+            "options": [
+                "10",
+                "20",
+                "30",
+                "40"
+            ],
+            "correct_answer": "30",
+            "explanation": "The ABB IRB120 robot can store up to 30 user-defined programs in its memory. This capability allows for the storage of multiple task sequences, facilitating efficient and organized operation in diverse automation setups."
+        },
+        {
+            "question": "What is the maximum acceleration of the ABB IRB120 robot?",
+            "options": [
+                "3 m/s^2",
+                "5 m/s^2",
+                "7 m/s^2",
+                "9 m/s^2"
+            ],
+            "correct_answer": "7 m/s^2",
+            "explanation": "The ABB IRB120 robot has a maximum acceleration of 7 m/s^2. This acceleration rate enables the robot to achieve rapid motion and quick transitions between tasks, enhancing overall productivity in dynamic industrial environments."
+        },
+        {
+            "question": "Which communication interface does the ABB IRB120 robot support for external integration?",
+            "options": [
+                "Ethernet/IP",
+                "Modbus TCP",
+                "PROFINET",
+                "EtherCAT"
+            ],
+            "correct_answer": "Ethernet/IP",
+            "explanation": "The ABB IRB120 robot supports the Ethernet/IP communication interface for external integration. Ethernet/IP is a widely used industrial protocol that enables seamless communication with other automation devices and systems, ensuring interoperability and ease of integration."
+        },
+        {
+            "question": "What is the maximum number of I/O connections available on the ABB IRB120 robot?",
+            "options": [
+                "16",
+                "32",
+                "48",
+                "64"
+            ],
+            "correct_answer": "32",
+            "explanation": "The ABB IRB120 robot provides a maximum of 32 I/O connections for interfacing with external devices and peripherals. This ample I/O capacity allows for the integration of various sensors, actuators, and control devices, enabling sophisticated automation solutions."
+        },
+        {
+            "question": "What is the maximum operating temperature range of the ABB IRB120 robot?",
+            "options": [
+                "-10°C to 40°C",
+                "0°C to 50°C",
+                "10°C to 60°C",
+                "20°C to 70°C"
+            ],
+            "correct_answer": "0°C to 50°C",
+            "explanation": "The ABB IRB120 robot has a maximum operating temperature range of 0°C to 50°C. This temperature range ensures reliable performance in typical industrial environments without the need for additional cooling or heating measures."
+        },
+        {
+            "question": "Which safety standard(s) does the ABB IRB120 robot comply with?",
+            "options": [
+                "ISO 9001",
+                "ISO 14001",
+                "ISO 45001",
+                "ISO 10218"
+            ],
+            "correct_answer": "ISO 10218",
+            "explanation": "The ABB IRB120 robot complies with the ISO 10218 safety standard for industrial robots. This standard specifies safety requirements and guidelines for the design, manufacture, and integration of robots, ensuring safe operation in various industrial settings."
+        },
+        {
+            "question": "What is the typical lifespan expectancy of the ABB IRB120 robot?",
+            "options": [
+                "5 years",
+                "10 years",
+                "15 years",
+                "20 years"
+            ],
+            "correct_answer": "15 years",
+            "explanation": "The typical lifespan expectancy of the ABB IRB120 robot is 15 years. This longevity reflects the robust construction and reliability of the robot, making it a cost-effective investment for long-term industrial automation applications."
+        }
+    ],
+    "count": 10
+}

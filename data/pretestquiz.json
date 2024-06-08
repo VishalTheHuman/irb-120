@@ -1,0 +1,115 @@
+{
+    "qna": [
+        {
+            "question": "What is the maximum payload capacity of the ABB IRB120 robot?",
+            "options": [
+                "3 kg",
+                "6 kg",
+                "10 kg",
+                "12 kg"
+            ],
+            "correct_answer": "3 kg",
+            "explanation": "The ABB IRB120 robot can handle a maximum payload of 3 kg. This capacity is suitable for tasks that involve handling small parts, lightweight tools, or assembly components."
+        },
+        {
+            "question": "What is the repeatability of the ABB IRB120 robot?",
+            "options": [
+                "±0.01 mm",
+                "±0.02 mm",
+                "±0.05 mm",
+                "±0.1 mm"
+            ],
+            "correct_answer": "±0.01 mm",
+            "explanation": "The repeatability of ±0.01 mm means that the ABB IRB120 can return to a specific point within a margin of 0.01 mm. This high precision is essential for applications that require exact positioning, such as electronics assembly and detailed laboratory work."
+        },
+        {
+            "question": "What type of robot is the ABB IRB120?",
+            "options": [
+                "SCARA robot",
+                "Articulated robot",
+                "Cartesian robot",
+                "Delta robot"
+            ],
+            "correct_answer": "Articulated robot",
+            "explanation": "The ABB IRB120 is an articulated robot, characterized by its rotary joints. This design allows for a wide range of motion, making it versatile for various industrial applications such as assembly, packaging, and material handling."
+        },
+        {
+            "question": "What is the reach of the ABB IRB120 robot?",
+            "options": [
+                "580 mm",
+                "700 mm",
+                "900 mm",
+                "1200 mm"
+            ],
+            "correct_answer": "580 mm",
+            "explanation": "The reach of 580 mm refers to the maximum distance the robot's arm can extend. This moderate reach is ideal for confined spaces and ensures that the robot can effectively work within a compact area, making it suitable for small-scale automation tasks."
+        },
+        {
+            "question": "What is the weight of the ABB IRB120 robot?",
+            "options": [
+                "20 kg",
+                "25 kg",
+                "30 kg",
+                "35 kg"
+            ],
+            "correct_answer": "25 kg",
+            "explanation": "Weighing 25 kg, the ABB IRB120 is relatively lightweight. This facilitates easier installation and relocation, allowing for flexible use in different work environments without requiring heavy-duty support structures."
+        },
+        {
+            "question": "What is the power supply requirement for the ABB IRB120 robot?",
+            "options": [
+                "100-240 V AC",
+                "200-600 V AC",
+                "24 V DC",
+                "48 V DC"
+            ],
+            "correct_answer": "200-600 V AC",
+            "explanation": "The ABB IRB120 robot requires a power supply of 200-600 V AC. This wide voltage range allows for compatibility with various industrial power standards worldwide, making it adaptable for international use."
+        },
+        {
+            "question": "What is the number of axes of the ABB IRB120 robot?",
+            "options": [
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "correct_answer": "6",
+            "explanation": "The ABB IRB120 has 6 axes, providing it with a high degree of freedom. These six axes enable complex and flexible movements, which are necessary for tasks that require intricate and precise operations, such as welding and detailed assembly."
+        },
+        {
+            "question": "Which of the following controllers is compatible with the ABB IRB120 robot?",
+            "options": [
+                "IRC5",
+                "KRC4",
+                "DX200",
+                "R-30iB"
+            ],
+            "correct_answer": "IRC5",
+            "explanation": "The ABB IRB120 is compatible with the IRC5 controller. The IRC5 offers advanced motion control capabilities, ease of programming, and features like coordinated motion, which enhance the robot's performance and integration into complex automation systems."
+        },
+        {
+            "question": "What is the maximum speed of the ABB IRB120 robot's wrist joint?",
+            "options": [
+                "200°/s",
+                "360°/s",
+                "600°/s",
+                "720°/s"
+            ],
+            "correct_answer": "600°/s",
+            "explanation": "The maximum speed of the ABB IRB120 robot's wrist joint is 600°/s. This high speed allows the robot to perform rapid movements, increasing efficiency in tasks such as pick and place operations and other high-speed applications."
+        },
+        {
+            "question": "Which of the following is a common application for the ABB IRB120 robot?",
+            "options": [
+                "Medical surgery",
+                "Automated painting",
+                "Pick and place",
+                "Heavy load lifting"
+            ],
+            "correct_answer": "Pick and place",
+            "explanation": "A common application for the ABB IRB120 robot is pick and place operations. The robot's precision, speed, and flexibility make it ideal for quickly picking up items and placing them in designated locations, which is crucial in manufacturing, packaging, and assembly lines."
+        }
+    ],
+    "count": 10
+}
