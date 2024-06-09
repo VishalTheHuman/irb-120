@@ -1,7 +1,7 @@
 import streamlit as st
 import importlib.util
 import subprocess
-spec = importlib.util.find_spec(library_name)
+spec = importlib.util.find_spec("st_pages")
 if spec is None:
     subprocess.check_call(["pip", "install", "st_pages"])
 
