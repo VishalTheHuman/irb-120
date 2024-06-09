@@ -1,10 +1,4 @@
 import streamlit as st
-import importlib.util
-import subprocess
-spec = importlib.util.find_spec("st-pages")
-if spec is None:
-    subprocess.check_call(["pip", "install", "st-pages"])
-
 from st_pages import show_pages, Page, hide_pages
 from streamlit_extras.stylable_container import stylable_container
 
