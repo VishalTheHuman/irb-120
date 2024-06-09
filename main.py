@@ -1,6 +1,15 @@
 import streamlit as st
+import importlib.util
+import subprocess
+spec = importlib.util.find_spec(library_name)
+if spec is None:
+    subprocess.check_call(["pip", "install", "st_pages"])
+
 from st_pages import show_pages, Page, hide_pages
 from streamlit_extras.stylable_container import stylable_container
+
+
+
 
 def main():
     st.set_page_config(page_title="Home", page_icon="🏠", layout= "wide")
