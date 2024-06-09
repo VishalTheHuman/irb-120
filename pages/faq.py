@@ -1,12 +1,15 @@
 import streamlit as st
 import json
-st.set_page_config(page_title="FAQ", page_icon="❓")
+st.set_page_config(page_title="FAQ", page_icon="❓", layout= "wide")
 
 st.image("assets/faq.gif")
 st.title("FAQ ❓", anchor = False)
 
 st.markdown("""
     <style>
+    p{
+        font-weight:bold;
+    }
     
     .e1f1d6gn0{
         align-items:center;

@@ -1,193 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Inverse Kinematics of IRB 120</title>
-    <style>
-        body { margin: 0; }
-        canvas { display: block; }
-        #sidebar {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            max-height: 94vh;
-            overflow-y: auto;
-        }
-        #sidebar::-webkit-scrollbar {
-            display: none; 
-        }
-        table {
-            width: 100%;
-        }
-        th, td {
-            text-align: left;
-            padding: 4px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        input[type=range] {
-            width: 100%; /* Make the slider take full width */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Inverse Kinematics of IRB 120</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+    #sidebar {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+      max-height: 94vh;
+      overflow-y: auto;
+    }
+    #sidebar::-webkit-scrollbar {
+      display: none; 
+    }
+    table {
+      width: 100%;
+    }
+    th, td {
+      text-align: left;
+      padding: 4px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    input[type=range] {
+      width: 100%; 
+    }
+  </style>
 </head>
 <body>
-    <div id="sidebar">
-        <h2>Inverse Kinematics of IRB 120</h2>
-        <table>
-            <tr>
-                <th>Control</th>
-                <th>Value</th>
-            </tr>
-            <tr>
-                <td><label for="posX">Position X</label></td>
-                <td><input type="range" id="posX" name="posX" min="-1" max="1" step="0.01" value="0"></td>
-            </tr>
-            <tr>
-                <td><label for="posY">Position Y</label></td>
-                <td><input type="range" id="posY" name="posY" min="-1" max="1" step="0.01" value="0"></td>
-            </tr>
-            <tr>
-                <td><label for="posZ">Position Z</label></td>
-                <td><input type="range" id="posZ" name="posZ" min="-1" max="1" step="0.01" value="0.5"></td>
-            </tr>
-        </table>
-        <div id="info"></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <div id="sidebar">
+    <h2>Inverse Kinematics of IRB 120</h2>
+    <table>
+      <tr>
+        <th>Control</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td><label for="posX">Position X</label></td>
+        <td><input type="range" id="posX" name="posX" min="-1" max="1" step="0.01" value="0"></td>
+      </tr>
+      <tr>
+        <td><label for="posY">Position Y</label></td>
+        <td><input type="range" id="posY" name="posY" min="-1" max="1" step="0.01" value="0"></td>
+      </tr>
+      <tr>
+        <td><label for="posZ">Position Z</label></td>
+        <td><input type="range" id="posZ" name="posZ" min="-4" max="-1" step="0.01" value="0.5"></td>
+      </tr>
+    </table>
+    <div id="info"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
-    <script>
-        let scene, camera, renderer, controls, model;
-        const joints = {};
-        const endEffectorPos = { x: 0, y: 0, z: 0.5 };
-        const infoDiv = document.getElementById('info');
+  <script>
+    let scene, camera, renderer, controls, model;
+    const joints = {};
+    const endEffectorPos = { x: 0, y: 0, z: 0.5 };
+    const infoDiv = document.getElementById('info');
 
-        init();
-        animate();
+    init();
+    animate();
 
-        function init() {
-            // Scene
-            scene = new THREE.Scene();
-            
-            // Camera
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
-            camera.position.set(0, 2, 80);
-            
-            // Renderer
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
-            
-            // Orbit Controls
-            controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.25;
-            controls.screenSpacePanning = false;
-            controls.minDistance = 10;
-            controls.maxDistance = 200; 
-            controls.maxPolarAngle = Math.PI;
-            
-            // Lights
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-            directionalLight.position.set(10, 10, 10);
-            scene.add(directionalLight);
+    function init() {
+      // Scene
+      scene = new THREE.Scene();
+      
+      // Camera
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+      camera.position.set(0, 2, 80);
+      
+      // Renderer
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      
+      // Orbit Controls
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.25;
+      controls.screenSpacePanning = false;
+      controls.minDistance = 10;
+      controls.maxDistance = 200; 
+      controls.maxPolarAngle = Math.PI;
+      
+      // Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLight.position.set(10, 10, 10);
+      scene.add(directionalLight);
 
-            // GLTF Loader
-            const loader = new THREE.GLTFLoader();
-            loader.load('../irb120.gltf', function (gltf) {
-                model = gltf.scene;
+      // GLTF Loader
+      const loader = new THREE.GLTFLoader();
+      loader.load('irb120.gltf', function (gltf) {
+        model = gltf.scene;
 
-                // Scale the model down
-                model.scale.set(0.5, 0.5, 0.5); 
+        // Scale the model down
+        model.scale.set(0.5, 0.5, 0.5); 
 
-                // Center the model
-                model.position.set(0, 0, 0);
+        // Center the model
+        model.position.set(0, 0, 0);
 
-                scene.add(model);
+        scene.add(model);
 
-                // Find and store joints
-                joints.obj1 = model.getObjectByName('obj1');
-                joints.obj2 = model.getObjectByName('obj2');
-                joints.obj3 = model.getObjectByName('obj3');
-                joints.obj4 = model.getObjectByName('obj4');
-                joints.obj5 = model.getObjectByName('obj5');
-                joints.obj6 = model.getObjectByName('obj6');
-            });
+        // Find and store joints
+        joints.obj1 = model.getObjectByName('obj1');
+        joints.obj2 = model.getObjectByName('obj2');
+        joints.obj3 = model.getObjectByName('obj3');
+        joints.obj4 = model.getObjectByName('obj4');
+        joints.obj5 = model.getObjectByName('obj5');
+        joints.obj6 = model.getObjectByName('obj6');
+      });
 
-            // Handle window resize
-            window.addEventListener('resize', onWindowResize, false);
+      // Handle window resize
+      window.addEventListener('resize', onWindowResize, false);
 
-            // Slider event listeners
-            document.getElementById('posX').addEventListener('input', function(event) {
-                endEffectorPos.x = parseFloat(event.target.value);
-                updateJointAngles();
-            });
-            document.getElementById('posY').addEventListener('input', function(event) {
-                endEffectorPos.y = parseFloat(event.target.value);
-                updateJointAngles();
-            });
-            document.getElementById('posZ').addEventListener('input', function(event) {
-                endEffectorPos.z = parseFloat(event.target.value);
-                updateJointAngles();
-            });
+      // Slider event listeners
+      document.getElementById('posX').addEventListener('input', function(event) {
+        endEffectorPos.x = parseFloat(event.target.value);
+        updateJointAngles();
+      });
+      document.getElementById('posY').addEventListener('input', function(event) {
+        endEffectorPos.y = parseFloat(event.target.value);
+        updateJointAngles();
+      });
+      document.getElementById('posZ').addEventListener('input', function(event) {
+        endEffectorPos.z = parseFloat(event.target.value);
+        updateJointAngles();
+      });
 
-            updateInfo();
-        }
+      updateInfo();
+    }
 
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
 
-        function animate() {
-            requestAnimationFrame(animate);
+    function animate() {
+      requestAnimationFrame(animate);
 
-            controls.update();
+      controls.update();
 
-            renderer.render(scene, camera);
-        }
+      renderer.render(scene, camera);
+    }
 
-        function updateJointAngles() {
-            // Placeholder inverse kinematics calculations (replace with actual IK solver)
-            // Assuming a simple planar robot for illustration; update as needed
-            const angles = inverseKinematics(endEffectorPos);
-            
-            if (joints.obj1) joints.obj1.rotation.z = THREE.Math.degToRad(angles[0]);
-            if (joints.obj2) joints.obj2.rotation.z = THREE.Math.degToRad(angles[1]);
-            if (joints.obj3) joints.obj3.rotation.z = THREE.Math.degToRad(angles[2]);
-            if (joints.obj4) joints.obj4.rotation.z = THREE.Math.degToRad(angles[3]);
-            if (joints.obj5) joints.obj5.rotation.z = THREE.Math.degToRad(angles[4]);
-            if (joints.obj6) joints.obj6.rotation.z = THREE.Math.degToRad(angles[5]);
+    function updateJointAngles() {
+      // Placeholder inverse kinematics calculations (replace with actual IK solver)
+      const angles = inverseKinematics(endEffectorPos);
+      
+      if (joints.obj1) joints.obj1.rotation.z = THREE.Math.degToRad(angles[0]);
+      if (joints.obj2) joints.obj2.rotation.z = THREE.Math.degToRad(angles[1]);
+      if (joints.obj3) joints.obj3.rotation.z = THREE.Math.degToRad(angles[2]);
+      if (joints.obj4) joints.obj4.rotation.z = THREE.Math.degToRad(angles[3]);
+      if (joints.obj5) joints.obj5.rotation.z = THREE.Math.degToRad(angles[4]);
+      if (joints.obj6) joints.obj6.rotation.z = THREE.Math.degToRad(angles[5]);
 
-            updateInfo();
-        }
+      updateInfo();
+    }
 
-        function updateInfo() {
-            let infoHtml = `<table><tr><th>End Effector</th><th>Position (x, y, z)</th></tr>`;
-            infoHtml += `<tr><td>Position</td><td>(${endEffectorPos.x.toFixed(2)}, ${endEffectorPos.y.toFixed(2)}, ${endEffectorPos.z.toFixed(2)})</td></tr>`;
-            infoHtml += '</table>';
-            infoDiv.innerHTML = infoHtml;
-        }
+    function updateInfo() {
+      let infoHtml = `<table><tr><th>End Effector</th><th>Position (x, y, z)</th></tr>`;
+      infoHtml += `<tr><td>Position</td><td>(${endEffectorPos.x.toFixed(2)}, ${endEffectorPos.y.toFixed(2)}, ${endEffectorPos.z.toFixed(2)})</td></tr>`;
+      infoHtml += '</table>';
+      infoDiv.innerHTML = infoHtml;
+    }
 
-        function inverseKinematics(pos) {
-            // Placeholder inverse kinematics function
-            // Implement your actual IK algorithm here
-            const jointAngles = [0, 0, 0, 0, 0, 0];
-            // Example for planar robot, update for your robot's specific kinematics
-            jointAngles[0] = Math.atan2(pos.y, pos.x) * 180 / Math.PI;
-            jointAngles[1] = (Math.sqrt(pos.x ** 2 + pos.y ** 2) - 0.3) * 180 / Math.PI;
-            jointAngles[2] = pos.z * 180 / Math.PI;
-            return jointAngles;
-        }
-    </script>
+    // This is a simple IK solution for a planar robot, 
+    // you'll need to replace this with a proper IK algorithm for the IRB 120.
+    function inverseKinematics(pos) {
+      const jointAngles = [0, 0, 0, 0, 0, 0];
+
+      // Example for planar robot, update for your robot's specific kinematics
+      jointAngles[0] = Math.atan2(pos.y, pos.x) * 180 / Math.PI;
+      jointAngles[1] = (Math.sqrt(pos.x ** 2 + pos.y ** 2) - 0.3) * 180 / Math.PI;
+      jointAngles[2] = pos.z * 180 / Math.PI;
+
+      // You'll need to implement the real IK calculation for the IRB 120.
+      // Consider using libraries like KDL or other IK solvers for this.
+
+      return jointAngles;
+    }
+  </script>
 </body>
 </html>

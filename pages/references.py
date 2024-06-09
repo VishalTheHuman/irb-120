@@ -24,6 +24,9 @@ st.markdown("""
         align-items: center;
         flex-direction: column;
     }
+    div{
+        font-weight:bold;
+    }
     </style>
     """, unsafe_allow_html=True)
 st.dataframe(df, column_config={
